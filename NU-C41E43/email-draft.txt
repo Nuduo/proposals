@@ -1,0 +1,13 @@
+Subject: A rebuild plan for claytonglass.com
+
+Hi [Owner's Name],
+
+I took a close look at claytonglass.com recently and put together a proposal for what a rebuild could look like. Clayton Glass has been fabricating and installing glass across the Phoenix Valley since 1983, and the current site undersells that badly. A few things are actively costing you business right now: the quote request page doesn't work, several menu links lead to the wrong page, and the site isn't built for phones, which is where most people searching for a glass company are.
+
+I put the full plan together here: https://claude.ai/code/artifact/18da3e76-4329-4073-96b3-9d8480fafe89. It walks through what's broken, what a rebuild would include, and a rough timeline to get there.
+
+Worth fifteen minutes on a call to go through it together? Happy to work around your schedule.
+
+Best,
+Derek Hanson
+Nuduo
