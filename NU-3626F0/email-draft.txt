@@ -1,0 +1,22 @@
+Subject: A rebuild plan for flowheartandvascular.com
+
+Hi Dr. Patel,
+
+I took a close look at flowheartandvascular.com and put together a proposal for what a rebuild
+could look like. The practice has real advantages most independent cardiology sites don't — board
+certification in two subspecialties, an academic appointment, 70+ publications — and the site
+undersells all of it. A few things are actively costing you visibility right now: a structured-data
+conflict that keeps search engines from resolving the practice as a single trusted entity, a quarter
+of the blog posts crediting a developer account instead of you, and zero of the FAQ-shaped content
+on the site marked up so AI assistants can actually surface it.
+
+I put the full plan together here: https://claude.ai/code/artifact/bdc5e142-f6ff-4710-ae7a-e1e65d37b4bc.
+It walks through what we found, what a phased rebuild would include, and rough timelines to get
+there. Phase 1 alone is a few weeks of work and fixes the issues actively costing search visibility
+today.
+
+Worth fifteen minutes on a call to go through it together? Happy to work around your schedule.
+
+Best,
+Derek Hanson
+Nuduo

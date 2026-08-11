@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Flow Heart &amp; Vascular: Website Rebuild Plan (Draft v1)</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #444;
+    --muted: #777;
+    --rule: #ddd;
+    --accent: #2a4d5c;
+    --bg-alt: #f6f6f4;
+    --critical: #a33;
+    --high: #96631f;
+    --medium: #555;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.65;
+  }
+  .page { max-width: 760px; margin: 0 auto; padding: 64px 32px 96px; }
+  header.doc { border-bottom: 3px solid var(--ink); padding-bottom: 24px; margin-bottom: 48px; }
+  header.doc .kicker { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  header.doc h1 { font-family: Georgia, "Times New Roman", serif; font-size: 34px; font-weight: 400; margin: 0 0 16px; line-height: 1.25; }
+  .meta { display: flex; flex-wrap: wrap; gap: 24px; font-size: 13px; color: var(--muted); }
+  .meta strong { color: var(--ink); font-weight: 600; display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px; }
+
+  h2 { font-family: Georgia, "Times New Roman", serif; font-size: 24px; font-weight: 400; margin: 56px 0 8px; padding-top: 8px; border-top: 1px solid var(--rule); color: var(--ink); }
+  h2 .num { color: var(--muted); font-variant-numeric: tabular-nums; margin-right: 10px; }
+  h3 { font-size: 17px; font-weight: 600; margin: 28px 0 8px; }
+  p { margin: 0 0 16px; color: var(--ink-soft); font-size: 15.5px; }
+  p.lede { font-size: 17px; color: var(--ink); }
+  ul, ol { color: var(--ink-soft); font-size: 15.5px; padding-left: 22px; }
+  li { margin-bottom: 8px; }
+  strong { color: var(--ink); }
+  code { background: var(--bg-alt); padding: 1px 5px; border-radius: 3px; font-size: 0.9em; }
+
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+  th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); padding: 8px 12px 8px 0; border-bottom: 2px solid var(--ink); }
+  td { padding: 12px 12px 12px 0; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-soft); }
+  tr:last-child td { border-bottom: none; }
+  .sev { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+  .sev--critical { color: var(--critical); }
+  .sev--high { color: var(--high); }
+  .sev--medium { color: var(--medium); }
+
+  .callout { background: var(--bg-alt); border-left: 3px solid var(--accent); padding: 16px 20px; margin: 20px 0; font-size: 14.5px; color: var(--ink-soft); }
+
+  .phase-table th, .phase-table td { text-align: left; }
+  .phase-table td.price { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink); font-weight: 600; }
+
+  footer.doc { margin-top: 72px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+  @media (max-width: 600px) {
+    .page { padding: 40px 20px 64px; }
+    header.doc h1 { font-size: 27px; }
+    table, thead, tbody, tr { display: block; }
+    th { display: none; }
+    td { display: block; border-bottom: none; padding: 4px 0; }
+    tr { padding-bottom: 16px; border-bottom: 1px solid var(--rule); margin-bottom: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="doc">
+    <div class="kicker">Draft v1, Internal / Working Document</div>
+    <h1>Flow Heart &amp; Vascular<br />Website Rebuild: Audit &amp; Plan</h1>
+    <div class="meta">
+      <div><strong>Prepared for</strong>Flow Heart &amp; Vascular, Dr. Nachiket J. Patel, MD, FACC, FSCAI</div>
+      <div><strong>Prepared by</strong>Nuduo LLC</div>
+      <div><strong>Date</strong>August 11, 2026</div>
+      <div><strong>Job code</strong>NU-3626F0</div>
+    </div>
+  </header>
+
+  <p class="lede">
+    Based on a full crawl of all 70 sitemap URLs (10 core pages, 22 blog posts, 21 condition
+    pages, 6 diagnostic test pages, 5 procedure pages, 3 taxonomy hubs), a technical SEO audit,
+    a content-quality review, and a competitive scan of eight comparable cardiology/vascular and
+    healthcare sites.
+  </p>
+  <p>
+    Current site credit line (footer): "Medical Website Design by WebToMed," on WordPress + WP
+    Engine + Cloudflare, running Yoast SEO and an Oxygen/Breakdance page builder. Worth knowing
+    going in: there's an existing vendor relationship, and this plan either replaces or works
+    alongside it.
+  </p>
+
+  <h2><span class="num">1</span>The short version</h2>
+  <p>
+    This site is not the mess "rebuild everything" requests usually turn up. The information
+    architecture is already symptom-forward and logically organized. Every one of the 70 sitemap
+    pages resolves cleanly: no 404s, no redirect chains, no orphaned pages. Title tags are
+    disciplined and unique across the board. The site already auto-generates <code>llms.txt</code>
+    for AI-crawler consumption, which almost none of its competitors have. The medical content is
+    factually accurate. Cited trials (RESTOR-1, TORUS 2) and guideline references check out
+    against real sources.
+  </p>
+  <p>What's actually wrong falls into three buckets, and none of them require throwing out the foundation:</p>
+  <ul>
+    <li><strong>Structural SEO defects that are invisible to a human but block machine trust.</strong>
+    A JSON-LD <code>@id</code> collision means Google can't cleanly resolve the practice as a
+    single entity. Six of 22 blog posts are structurally attributed to a developer account instead
+    of Dr. Patel. Three pages ship duplicate H1s. Zero pages carry FAQPage schema despite the
+    content already being written in Q&amp;A format almost everywhere.</li>
+    <li><strong>A content engine that repeats itself.</strong> Twenty-plus pages were built on one
+    template with one rhetorical toolkit. The same "X doesn't mean A, it means B" construction
+    appears on at least seven pages, and FAQ answers open with a bare "Yes." or "No." almost
+    everywhere. The one place the site lets Dr. Patel actually sound like a physician instead of a
+    byline is a first-person "Bottom Line" close on a single blog post. It's the best writing on
+    the site, and it should be the template rather than the exception.</li>
+    <li><strong>A page-builder tax on performance.</strong> Oxygen/Breakdance ships 22 blocking
+    stylesheets and 11 synchronous scripts per page.</li>
+  </ul>
+
+  <h2><span class="num">2</span>Technical and link health</h2>
+  <p>
+    All 70 URLs return clean 200s with correct canonicalization. Phone links are consistently
+    formatted, NAP is consistent sitewide, and a live Google Business Profile review link confirms
+    an active, claimed listing. Two real issues surfaced: the patient portal link (Healow →
+    eClinicalWorks) lands on a login page carrying leftover "Lively Pediatrics" branding fragments
+    from a shared vendor template, and <code>/book/</code> is not a scheduling page. It's a
+    landing page for Dr. Patel's upcoming book, "Flow," with an email-signup form. If anyone
+    expects <code>/book/</code> to mean "book an appointment," that's a naming collision worth
+    fixing regardless of anything else.
+  </p>
+
+  <h2><span class="num">3</span>SEO and AI-search readiness</h2>
+  <p>Ranked by what actually moves the needle:</p>
+  <table>
+    <thead><tr><th style="width:90px;">Priority</th><th>Finding</th></tr></thead>
+    <tbody>
+      <tr><td><span class="sev sev--critical">Critical</span></td><td><strong>Schema identity collision.</strong> <code>MedicalClinic</code> and Yoast's <code>Organization</code> schema share one <code>@id</code> sitewide; <code>/about-us/</code> defines a third, incomplete <code>MedicalClinic</code> block under the same <code>@id</code>. Breaks the entity graph search engines use to resolve "who is this business."</td></tr>
+      <tr><td><span class="sev sev--critical">Critical</span></td><td><strong>Authorship gap.</strong> 6 of 22 blog posts structurally authored by <code>flowheartdev</code> instead of Dr. Patel in the JSON-LD (the visible byline is correct; this is a backend WP-user bug). A core E-E-A-T signal fails for a quarter of the blog.</td></tr>
+      <tr><td><span class="sev sev--high">High</span></td><td><strong>Zero FAQPage/QAPage schema</strong> despite condition pages averaging 9-12 question-phrased headers. Content is already 90% of the way to AI-answer-engine-ready: the highest-leverage AEO fix available.</td></tr>
+      <tr><td><span class="sev sev--high">High</span></td><td><strong>Duplicate H1</strong> on <code>/about-us/</code>, <code>/insurance/</code>, <code>/second-opinion/</code> (template header + custom hero both render an H1). Muddies topical signal on three key conversion pages.</td></tr>
+      <tr><td><span class="sev sev--high">High</span></td><td><strong>Render-blocking assets.</strong> 22 blocking stylesheets + 11 synchronous scripts per page from Oxygen/Breakdance; only 1 of 18 homepage images has explicit width/height.</td></tr>
+      <tr><td><span class="sev sev--medium">Medium</span></td><td><strong>No local service-area targeting.</strong> No <code>areaServed</code>/<code>geo</code> in schema; zero mentions of Gilbert, Chandler, Apache Junction, Scottsdale.</td></tr>
+      <tr><td><span class="sev sev--medium">Medium</span></td><td><strong>Maps embed</strong> uses a text-query iframe, not a verified Place ID.</td></tr>
+    </tbody>
+  </table>
+  <p>
+    What's already working and should be preserved: title tag discipline, clean canonicalization,
+    descriptive image alt text, correct lazy loading, and the existing <code>llms.txt</code> file,
+    genuinely rare among competitors.
+  </p>
+
+  <h2><span class="num">4</span>Content quality</h2>
+  <p>
+    Verdict: medium-severity AI-pattern fatigue sitting on top of genuinely accurate clinical
+    material. The two named clinical trials, the publication list, and the guideline citations all
+    check out. The tell is structural, not factual. The same forced-negation move recurs across
+    at least seven pages, the site's central value proposition gets independently regenerated five
+    separate times, and every condition/procedure page follows an identical skeleton closely enough
+    that reading more than three back to back exposes the machinery.
+  </p>
+  <div class="callout">
+    Dr. Patel has 70+ publications, named trial PI roles, and a forthcoming book, and almost none
+    of that shows up in his actual clinical voice. Every condition and procedure page is written in
+    flat third person. The single exception, a first-person "Bottom Line" close on one blog post
+    ("What I want patients to remember is simple..."), is the best-written passage on the entire
+    site. Pulling that voice forward into every page is probably the single highest-value content
+    change available.
+  </div>
+
+  <h2><span class="num">5</span>Competitive landscape</h2>
+  <p>
+    Reviewed against three independent/boutique cardiology practices (Corrielus Cardiology,
+    Avicenna/Manhattan Cardiology, Apollo Cardiology), three vein/vascular specialty chains (USA
+    Vein Clinics, Center for Vein Restoration, Metro Vein Centers), and two general healthcare UX
+    benchmarks (Tia, Parsley Health). None of the direct competitors have meaningfully invested in
+    AI-search schema: a real differentiation opportunity, not just catch-up.
+  </p>
+  <ul>
+    <li><strong>Dual, co-equal hero CTAs</strong> ("Request an Appointment" / "Request a Second
+    Opinion") rather than one generic button, following Parsley's pattern.</li>
+    <li><strong>Credentials as a stat band under the hero</strong>, not an About-page bio: the
+    strongest credential combination of any competitor reviewed.</li>
+    <li><strong>A symptom-quiz or self-assessment tool</strong> as a low-commitment entry point,
+    standard at every vein-clinic competitor.</li>
+    <li><strong>Explicit insurance/cost language.</strong> Every competitor names payers or
+    financing; Flow Heart's insurance page lists plans as plain, unlinked text.</li>
+    <li><strong>A "For Physicians" referral pathway</strong> in primary navigation, following Corrielus
+    Cardiology's model.</li>
+    <li><strong>Testimonials with photos and named specificity</strong>, closer to Center for Vein
+    Restoration's physician-attributed outcome format.</li>
+  </ul>
+
+  <h2><span class="num">6</span>Recommended platform</h2>
+  <p>
+    <strong>Rebuild on WordPress, but replace the Oxygen/Breakdance page builder with a lean
+    block-based theme.</strong> Not headless, not a platform migration. The existing WordPress/Yoast
+    foundation is doing real work already: the <code>llms.txt</code> generation, the clean
+    canonical structure, and the title-tag discipline are assets, not liabilities. The actual
+    defects are fixable within WordPress without a platform change, and a block-based rebuild keeps
+    switching cost low and stays familiar to whichever agency or freelancer maintains content.
+  </p>
+  <p>
+    If the practice adds associate physicians or wants maximum control over Core Web Vitals and
+    AI-search rendering down the line, a headless WordPress-as-API + Next.js frontend is the
+    natural upgrade path, scoped as Phase 3 rather than the starting point.
+  </p>
+
+  <h2><span class="num">7</span>Information architecture</h2>
+  <p>Keep the existing symptom-forward taxonomy. It already tests well against competitors. Changes:</p>
+  <ul>
+    <li>Promote Referring Providers to primary nav as "For Physicians," with expanded content on record transfer and consult expectations.</li>
+    <li>Resolve the <code>/book/</code> naming collision by renaming the book-promotion page and reserve "Book" language exclusively for appointment scheduling.</li>
+    <li>Add a symptom-quiz / self-assessment entry point, separate from the appointment-request form.</li>
+    <li>Rebuild Insurance as a real page with named payers/logos and explicit pricing where comfortable.</li>
+    <li>Add a FAQ hub page plus FAQPage schema wired into every condition, procedure, and diagnostic-test page.</li>
+    <li>Add light local/service-area content for the East Valley (Gilbert, Chandler, Apache Junction, Scottsdale).</li>
+  </ul>
+
+  <h2><span class="num">8</span>Design direction</h2>
+  <p>
+    The existing photography already has a distinctive palette worth keeping, not replacing. Image
+    alt text describes "warm wood, pale stone, and a deep teal chair" in the consultation
+    room, a stronger, more specific visual identity than the generic blue-and-white medical-site
+    default most competitors use. Lean into that: warm, tactile materials photographed in the real
+    space, a deep teal accent rather than clinical blue, modern typography, and a credentials stat
+    band with icons rather than a dense paragraph. The job is executing the existing palette with a
+    real design system instead of page-builder defaults, not reinventing it.
+  </p>
+
+  <h2><span class="num">9</span>Content strategy</h2>
+  <p>Preserve the factual backbone. Fix the delivery:</p>
+  <ul>
+    <li>Cut the forced-negation tic and the five-times-restated value proposition; say the core message once and let other pages link to it.</li>
+    <li>Replace the Yes/No-first FAQ format with direct, specific answers.</li>
+    <li>Expand the first-person "Bottom Line" voice from one blog post into a closing section on every condition, procedure, and blog page.</li>
+    <li>Assign each condition page and its overlapping blog post a distinct job to resolve redundancy between them.</li>
+    <li>Bring the Varicose Veins condition page up to the depth of its sibling pages.</li>
+    <li>Reassign the six misattributed blog posts to Dr. Patel's WordPress author account.</li>
+  </ul>
+
+  <h2><span class="num">10</span>Phased scope and budget</h2>
+  <p>Rough bands for planning purposes. Treat as an estimate, not a quote, until scoped against an actual dev/content vendor.</p>
+  <table class="phase-table">
+    <thead><tr><th>Phase</th><th>Scope</th><th>Timeline</th><th>Estimate</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>1. Foundation Fix</strong></td>
+        <td>Lean block theme; schema/authorship/H1/CWV fixes; FAQ schema; <code>/book/</code> fix; Insurance rebuild; edit pass on top pages.</td>
+        <td>4-6 wks</td>
+        <td class="price">$8,000-$15,000</td>
+      </tr>
+      <tr>
+        <td><strong>2. Full Rebuild</strong></td>
+        <td>Full content rewrite; real design system; symptom quiz; For Physicians pathway; testimonial upgrade; local content; editorial style guide.</td>
+        <td>10-14 wks</td>
+        <td class="price">$20,000-$35,000</td>
+      </tr>
+      <tr>
+        <td><strong>3. Platform Upgrade</strong></td>
+        <td>Headless (Next.js + WP-as-API); real-time scheduling; multi-provider scalability.</td>
+        <td>4-6 mo</td>
+        <td class="price">$45,000+</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    Phase 1 is worth greenlighting regardless of how the bigger questions resolve. It's cheap,
+    fast, fixes defects actively costing search visibility today, and doesn't foreclose any
+    platform decision later.
+  </p>
+
+  <h2><span class="num">11</span>Open questions</h2>
+  <ul>
+    <li><strong>Vendor relationship:</strong> does this replace WebToMed, or work alongside them?</li>
+    <li><strong>Brand assets:</strong> is the existing photography usable and expandable, or does the rebuild need a new shoot?</li>
+    <li><strong>Growth plans:</strong> any near-term plan to add associate physicians or a second location?</li>
+    <li><strong>Content review process:</strong> does Dr. Patel want to personally review every rewritten page, or delegate with spot-checks?</li>
+    <li><strong>Scheduling:</strong> is real-time booking worth pulling into Phase 2 rather than waiting for Phase 3?</li>
+  </ul>
+
+  <footer class="doc">
+    <span>NU-3626F0 · Draft v1 · Internal working document</span>
+    <span>Nuduo LLC</span>
+  </footer>
+
+</div>
+</body>
+</html>
